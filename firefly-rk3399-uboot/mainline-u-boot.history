@@ -1,0 +1,195 @@
+ 1800  sudo mount -o loop Fedora-KDE-Desktop-Live-43-1.6.aarch64.iso /media/iso
+ 1801  sudo mkdir /media/iso
+ 1802  sudo mount -o loop Fedora-KDE-Desktop-Live-43-1.6.aarch64.iso /media/iso
+ 1803  sudo mount -o loop /media/iso/LiveOS/squashfs.img /mnt
+ 1804  ls /mnt/
+ 1805  sudo modprobe erofs
+ 1806  sudo mount -o loop /media/iso/LiveOS/squashfs.img /mnt
+ 1807  dmesg 
+ 1808  sudo dmesg
+ 1809  sudo modprobe erofs
+ 1810  sudo modprobe lz4
+ 1811  sudo modprobe lz4hc
+ 1812  sudo mount -o loop /media/iso/LiveOS/squashfs.img /mnt
+ 1813  cp /media/iso/LiveOS/squashfs.img ~/Downloads/
+ 1814  sudo mount -o loop ./squashfs.img /mnt
+ 1815  ls -lh
+ 1816  rm -rf squashfs.img 
+ 1817  file /media/iso/LiveOS/squashfs.img 
+ 1818  sudo mount -t erofs -o loop,ro ./squashfs.img /mnt
+ 1819  sudo apt install erofsuse
+ 1820  mkdir -p /mnt/erofsuse
+ 1821  sudo mkdir -p /mnt/erofs
+ 1822  erofsfuse
+ 1823  sudo apt-get  install erofsfuse
+ 1824  erofsfuse /media/iso/LiveOS/squashfs.img /mnt/erofs/
+ 1825  cd /mnt/erofs/
+ 1826  ls
+ 1827  sudo erofsfuse /media/iso/LiveOS/squashfs.img /mnt/erofs/
+ 1828  cd /mnt/erofs
+ 1829  sudo ls /mnt/erofs
+ 1830  sudo ls /mnt/erofs/lib/module
+ 1831  sudo ls /mnt/erofs/lib/modules
+ 1832  sudo ls /mnt/erofs/lib/modules/6.17.1-300.fc43.aarch64/dtb
+ 1833  sudo ls /mnt/erofs/lib/modules/6.17.1-300.fc43.aarch64/dtb/rockchip
+ 1834  sudo ls /mnt/erofs/lib/modules/6.17.1-300.fc43.aarch64/dtb/rockchip/rk3399-*
+ 1835  sudo ls /mnt/erofs/lib/modules/6.17.1-300.fc43.aarch64/dtb/rockchip/
+ 1836  sudo cp -r /mnt/erofs/lib/modules/6.17.1-300.fc43.aarch64/dtb/rockchip/ fedora43_lib_module_6.17.1.dtb_rockchip
+ 1837  cd ~/Downloads/
+ 1838  ls
+ 1839  cd -
+ 1840  sudo cp -r /mnt/erofs/lib/modules/6.17.1-300.fc43.aarch64/dtb/rockchip/ fedora43_lib_module_6.17.1.dtb_rockchip
+ 1841  ls
+ 1842  ls fedora43_lib_module_6.17.1.dtb_rockchip/
+ 2003  cd trusted-firmware-a/
+ 2004  ls
+ 2005  git pull --tags
+ 2006  git checkout -b v2.6 tags/v2.6
+ 2007  make realclean
+ 2008  make CROSS_COMPILE=aarch64-linux-gnu- PLAT=rk3399
+ 2009  make realclean
+ 2010  git branch
+ 2011  make CROSS_COMPILE=aarch64-linux-gnu- PLAT=rk3399 CFLAGS='-gdwarf-2' 
+ 2012  make realclean
+ 2013  make CROSS_COMPILE=aarch64-linux-gnu- PLAT=rk3399   LDFLAGS="--no-warn-rwx-segments"
+ 2014  cd ../u-boot/
+ 2015  ls
+ 2016  git branch
+ 2017  git checkout branch -a
+ 2018  git branch -A
+ 2019  git branch -a
+ 2020  git pull tags
+ 2021  git pull --tags
+ 2022  git tags
+ 2023  git tag --all
+ 2024  git tag
+ 2025  git checkout -b v2022.04 tags/v2022.04
+ 2026  make clean
+ 2027  make distclean
+ 2028  export BL31=../trusted-firmware-a/build/rk3399/release/bl31/bl31.elf 
+ 2029  find ./ -name "*firefly*"
+ 2030  make firefly-rk3399_defconfig
+ 2031  make CROSS_COMPILE=aarch64-linux-gnu-
+ 2032  cd ..
+ 2033  ls
+ 2034  cd rkbin/
+ 2035  ls
+ 2036  find ./ -name u-boot-rockchip.bin
+ 2037  ls bin/
+ 2038  ls
+ 2039  cd cd ..
+ 2040  ls
+ 2041  cd ..
+ 2042  ls
+ 2043  cd rkbin/
+ 2044  ls
+ 2045  ./tools/mkimage --help
+ 2046  find ./ -name idbloader.img
+ 2047  cd ..
+ 2048  ls
+ 2049  find ./ -name idbloader.img
+ 2050  ls
+ 2051  find ./ -name u-boot-dtb.bin
+ 2052  find idbloader.img ./* -Iirn
+ 2053  find ./ -name idbloader.img
+ 2054  minicom usb0 
+ 2055  minicom usb1 
+ 2056  minicom usb0 
+ 2057  cd ~/git-root/
+ 2058  ls
+ 2059  cd ..
+ 2060  ls
+ 2061  cd rockdev/
+ 2062  ls
+ 2063  cd ..
+ 2064  ls
+ 2065  cd bsp_builder/
+ 2066  ls
+ 2067  cd shared_folder/
+ 2068  ls
+ 2069  scd rk3288_linux4.19_release_v1.2.0_20220620-src/
+ 2070  ls
+ 2071  cd rk3288_linux4.19_release_v1.2.0_20220620-src/
+ 2072  ls
+ 2073  find ./ -name Linux_Upgrade*
+ 2074  find ./ -name "*Linux_Upgrade*"
+ 2075  cd rk3288_linux4.19_release_v1.2.0_20220620-src/tools/linux/Linux_Upgrade_Tool/
+ 2076  ls
+ 2077  cd Linux_Upgrade_Tool/
+ 2078  ls
+ 2079  ./upgrade_tool 
+ 2080  sudo ./upgrade_tool 
+ 2081  pwd
+ 2082  cd ~/Downloads/
+ 2083  ls
+ 2084  /home/chang/bsp_builder/shared_folder/rk3288_linux4.19_release_v1.2.0_20220620-src/rk3288_linux4.19_release_v1.2.0_20220620-src/tools/linux/Linux_Upgrade_Tool/Linux_Upgrade_Tool
+ 2085  /home/chang/bsp_builder/shared_folder/rk3288_linux4.19_release_v1.2.0_20220620-src/rk3288_linux4.19_release_v1.2.0_20220620-src/tools/linux/Linux_Upgrade_Tool/Linux_Upgrade_Tool/upgrade_tool 
+ 2086  /home/chang/bsp_builder/shared_folder/rk3288_linux4.19_release_v1.2.0_20220620-src/rk3288_linux4.19_release_v1.2.0_20220620-src/tools/linux/Linux_Upgrade_Tool/Linux_Upgrade_Tool/upgrade_tool ./Firefly-RK3399_Android7.1.2_MP_190919.img 
+ 2087  /home/chang/bsp_builder/shared_folder/rk3288_linux4.19_release_v1.2.0_20220620-src/rk3288_linux4.19_release_v1.2.0_20220620-src/tools/linux/Linux_Upgrade_Tool/Linux_Upgrade_Tool/upgrade_tool uf ./Firefly-RK3399_Android7.1.2_MP_190919.img 
+ 2088  minicom usb0 
+ 2089  vi ~/.minirc.usb0 
+ 2090  minicom usb0 
+ 2091  vi ~/.minirc.usb0 
+ 2092  sudo dmesg |grep cp2104
+ 2093  lsmod
+ 2094  lsmod|grep cp
+ 2095  vi ~/.minirc.usb0 
+ 2096  minicom usb0 
+ 2097  vi ~/.minirc.usb0 
+ 2098  minicom usb0 
+ 2099  minicom 
+ 2100  minicom usb0 
+ 2101  cd ~/git-root/firefly-rk3399-uboot/
+ 2102  ls
+ 2103  lsmod |grep cp2
+ 2104  dmesg
+ 2105  sudo dmesg
+ 2106  sudo dmesg |grep tty
+ 2107  dmesg|grep tty
+ 2108  dmesg|grep S0
+ 2109  sudo dmesg|grep S0
+ 2110  dmesg
+ 2111  lsmod
+ 2112  lshw
+ 2113  dmesg
+ 2114  sudo dmesg
+ 2115  vi ~/.minirc.usb0 
+ 2116  ls
+ 2117  cd u-boot/
+ 2118  ls
+ 2119  grep "BAUDRATE" ./* -Iirn
+ 2120  vi .config
+ 2121  find ./ -name firefly-rk3288
+ 2122  find ./ -name firefly-rk3288*
+ 2123  vi configs/firefly-rk3399_defconfig 
+ 2124  echo $BL31
+ 2125  make firefly-rk3399_defconfig
+ 2126  vi .config
+ 2127  make CROSS_COMPILE=aarch64-linux-gnu-
+ 2128  lsblk
+ 2129  mount
+ 2130  mount|grep mmc
+ 2131  git status
+ 2132  cd ../rkbin/
+ 2133  ls
+ 2134  ./tools/mkimage 
+ 2135  cd ..
+ 2136  find ./ -name idbloader.img
+ 2145  ./rkbin/tools/mkimage -n rk3399 -T rksd -d ./rkbin/bin/rk33/rk3399_ddr_933MHz_v1.30.bin ./u-boot/idbloader.img 
+ 2146  ls
+ 2147  cat rkbin/bin/rk33/rk3399_miniloader_v1.30.bin >> u-boot/idbloader.img 
+ 2148  cd rkbin/bin/
+ 2149  ls
+ 2150  pwd
+ 2151  cd ..
+ 2152  ls
+ 2153  cd ..
+ 2154  ls
+ 2155  sudo dd if=u-boot/idbloader.img of=/dev/mmcblk0 seek=64
+ 2156  cd rkbin/
+ 2157  ./tools/trust_merger RKTRUST/RK3399TRUST.ini 
+ 2158  sudo dd if=trust.img of=/dev/mmcblk0 seek=24576
+ 2159  cd ../u-boot/
+ 2160  ls
+ 2162  ../rkbin/tools/loaderimage --pack --uboot u-boot-dtb.bin uboot.img 0x200000
+ 2163  sudo dd if=uboot.img of=/dev/mmcblk0 seek=16384
