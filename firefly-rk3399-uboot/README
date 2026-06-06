@@ -45,3 +45,27 @@ sudo dd if=trust.img of=/dev/mmcblk0 seek=24576
 ../rkbin/tools/loaderimage --pack --uboot u-boot-dtb.bin uboot.img 0x200000
 sudo dd if=uboot.img of=/dev/mmcblk0 seek=16384
 
+
+===============================================================
+Terms in uboot & rockchip
+===============================================================
++--------+----------------+----------+-------------+---------+
+|Boot phase | Terminology | Program name | RK image name | Image location |
++--------+----------------+--------------+---------------+----------------+
+| 1         | Primary     | ROM code     | BootRom       |                |
+|           | Program     |              |               |                |
+|           | Loader      |              |               |                |
+|           |             |              |               |                |
+| 2         | Secondary   | U-Boot       |idbloader.img  | 0x40           | pre-loader
+|           | Program     | TPL/SPL      |               |                |
+|           | Loader (SPL)|              |               |                |
+|           |             |              |               |                |
+| 3         | -           | U-Boot       | u-boot.itb    | 0x4000         | including u-boot and atf
+|           |             |              | uboot.img     |                | only used with miniloader
+|           |             |              |               |                |
+|           |             | ATF/TEE      | trust.img     | 0x6000         | only used with miniloader
+|           |             |              |               |                |
+| 4         | -           | kernel       | boot.img      | 0x8000         |
+|           |             |              |               |                |
+| 5         | -           | rootfs       | rootfs.img    | 0x40000        |
++-----------+-------------+--------------+---------------+----------------+
