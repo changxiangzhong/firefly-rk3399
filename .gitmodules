@@ -1,6 +1,6 @@
 [submodule "firefly-rk3399-uboot/mainline-u-boot"]
 	path = firefly-rk3399-uboot/mainline-u-boot
-	url = git@github.com:u-boot/u-boot.git
+	url = git@github.com:changxiangzhong/firefly-rk3399-uboot.git
 [submodule "firefly-rk3399-uboot/trusted-firmware-a"]
 	path = firefly-rk3399-uboot/trusted-firmware-a
 	url = https://github.com/TrustedFirmware-A/trusted-firmware-a.git
