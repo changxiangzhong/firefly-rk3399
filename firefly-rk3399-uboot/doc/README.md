@@ -15,9 +15,9 @@ ${u-boot}/doc/board/rockchip/rockchip.rst
 
 Key build scripts
 
-===============================================================
-Key scripts
-===============================================================
+========================================================================
+Key scripts - Option 1: Package the image with Rockchip miniloader
+========================================================================
 cd trusted-firmware-a/
 git checkout -b v2.6 tags/v2.6
 make realclean
@@ -47,6 +47,25 @@ sudo dd if=uboot.img of=/dev/mmcblk0 seek=16384
 
 
 ===============================================================
+Key scripts - Option 3: Package the image with TPL:
+===============================================================
+cd trusted-firmware-a/
+git checkout -b v2.6 tags/v2.6
+make realclean
+make CROSS_COMPILE=aarch64-linux-gnu- PLAT=rk3399   LDFLAGS="--no-warn-rwx-segments"
+
+# Compile u-boot
+export BL31=../trusted-firmware-a/build/rk3399/release/bl31/bl31.elf
+make clean
+make firefly-rk3399_defconfig
+make -j 16
+
+sudo dd if=idbloader.img of=/dev/sdb seek=64
+sudo dd if=u-boot.itb of=/dev/sdb seek=16384
+
+
+
+===============================================================
 Terms in uboot & rockchip
 ===============================================================
 +--------+----------------+----------+-------------+---------+
@@ -69,3 +88,4 @@ Terms in uboot & rockchip
 |           |             |              |               |                |
 | 5         | -           | rootfs       | rootfs.img    | 0x40000        |
 +-----------+-------------+--------------+---------------+----------------+
+
