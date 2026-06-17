@@ -18,6 +18,7 @@ Key build scripts
 ========================================================================
 Key scripts - Option 1: Package the image with Rockchip miniloader
 ========================================================================
+
 cd trusted-firmware-a/
 git checkout -b v2.6 tags/v2.6
 make realclean
@@ -49,6 +50,7 @@ sudo dd if=uboot.img of=/dev/mmcblk0 seek=16384
 ===============================================================
 Key scripts - Option 3: Package the image with TPL:
 ===============================================================
+
 cd trusted-firmware-a/
 git checkout -b v2.6 tags/v2.6
 make realclean
@@ -68,6 +70,7 @@ sudo dd if=u-boot.itb of=/dev/sdb seek=16384
 ===============================================================
 Terms in uboot & rockchip
 ===============================================================
+
 +--------+----------------+----------+-------------+---------+
 |Boot phase | Terminology | Program name | RK image name | Image location |
 +--------+----------------+--------------+---------------+----------------+
@@ -88,4 +91,16 @@ Terms in uboot & rockchip
 |           |             |              |               |                |
 | 5         | -           | rootfs       | rootfs.img    | 0x40000        |
 +-----------+-------------+--------------+---------------+----------------+
+
+
+
+===============================================================
+Useful script
+===============================================================
+
+sudo dd if=idbloader.img of=/dev/mmcblk0 seek=64
+sudo dd if=u-boot.itb of=/dev/mmcblk0 seek=16384
+
+export BL31=../trusted-firmware-a/build/rk3399/release/bl31/bl31.elf
+
 
