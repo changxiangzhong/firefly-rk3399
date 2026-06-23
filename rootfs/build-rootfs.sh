@@ -2,8 +2,8 @@
 set -x
 
 TARGET=./rootfs-debian
-ARCH=arm
-RELEASE=bookworm
+ARCH=armhf
+RELEASE=trixie
 
 mkdir -p $TARGET
 
