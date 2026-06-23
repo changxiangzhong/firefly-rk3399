@@ -7,3 +7,6 @@
 [submodule "firefly-rk3399-uboot/rkbin"]
 	path = firefly-rk3399-uboot/rkbin
 	url = https://github.com/rockchip-linux/rkbin
+[submodule "firefly-rk3399-kernel/mainline-kernel"]
+	path = firefly-rk3399-kernel/mainline-kernel
+	url = git@github.com:changxiangzhong/firefly-rk3399-kernel.git
